@@ -10,8 +10,6 @@ public class LearningManager : MonoBehaviour
     TextMeshProUGUI CharacterDisplayText;
     [SerializeField]
     TextMeshProUGUI ProgressLabel;
-    [SerializeField]
-    TextMeshProUGUI AverageScoreLabel;
 
     [SerializeField]
     AnswerButton SingleAnswerButton;
@@ -124,7 +122,6 @@ public class LearningManager : MonoBehaviour
 
         // Calculate the weight of new characters
         averageSuccessRatio /= LearningChars.Count;
-        AverageScoreLabel.text = $"Average Score\n{System.Math.Round(averageSuccessRatio * 100)}%";
         ProgressLabel.text = $"{LearningChars.Count}/{GameManager.Pack.CharacterList.Length}";
         double newCharacterWeight = BaseNewCharacterWeight;
         if (averageSuccessRatio > AverageSuccessRatioForIncreasedNewGlyphs && allGlyphsAboveAverageRequirement)
